@@ -1,0 +1,9 @@
+.idea
+.env
+build/
+dist/
+*.egg-info/
+tests/
+provaaa
+pyproject.toml
+setup
