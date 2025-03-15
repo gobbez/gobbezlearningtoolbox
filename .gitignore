@@ -4,6 +4,6 @@ build/
 dist/
 *.egg-info/
 tests/
-provaaa
+provaaa.py
 pyproject.toml
-setup
+setup.py
