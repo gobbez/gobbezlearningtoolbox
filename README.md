@@ -71,17 +71,31 @@ Simple quick-start guide for the python-telegram-bot module to create your own T
 
 #### Django:
 Simple quick-start guide to configure and create your Django backend server and database.
-* imports_project() = Most common imports for your main project
-* imports_application() = Find the most common imports to use in your applications 
+* imports_project(): Most common imports for your main project
+* imports_application(): Find the most common imports to use in your applications 
 
-* example_main_urls() = Example of Urls of the main project 
-* example_model() = Example of Model for your application 
-* example_view() = Example of View for your application 
-* example_urls() = Example of Urls for your application
+* example_main_urls(): Example of Urls of the main project 
+* example_model(): Example of Model for your application 
+* example_view(): Example of View for your application 
+* example_urls(): Example of Urls for your application
         
-* settings() = Django settings file explanations 
-* commands() = Most important Django commands
+* settings(): Django settings file explanations 
+* commands(): Most important Django commands
 
+#### Cookiecutter
+Simple quick-start to build a pre-configured Django project.
+* commands(): Cookiecutter commands
+
+#### CreatePyPiModule
+Simple commands to create your own PyPi Python module.
+* details(): Get step-by-step details
+* commands(): Commands to create your Python module
+
+#### Ollama
+Chat with an AI LLM model from Ollama directly in your Python code.
+* imports(): Ollama imports
+* commands(): Ollama shell commands to install a model
+* chat(): Example code to configure and use a LLM model
 
 
 ## Contribute
@@ -97,6 +111,9 @@ You can find the PyPi module here: https://pypi.org/project/gobbezlearningtoolbo
 
 
 ## Updates
+* added ollama (18/03/2025)
+* added createpypimodule (18/03/2025)
+* added cookiecutter (18/03/2025)
 * added django (18/03/2025)
 * added telegrambot (18/03/2025)
 * added listall (15/03/2025)

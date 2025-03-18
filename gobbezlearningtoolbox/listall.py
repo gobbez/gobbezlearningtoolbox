@@ -9,5 +9,8 @@ class ListAll():
         deeplearning = Deep Learning models with Tensorflow Keras
         telegrambot = Setup your own Telegram Bot with python-telegram-bot module
         django = Configure your Django backend and get some exaples for your applications
+        cookiecutter = Quick-Start with a pre-configured Django project
+        createpypimodule = Simple commands to create your own PyPi module
+        ollama = Chat with an AI LLM model from Ollama directly in your Python code
         """
         pf.format(text)
