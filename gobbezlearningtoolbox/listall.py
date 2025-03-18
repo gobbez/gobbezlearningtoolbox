@@ -8,5 +8,6 @@ class ListAll():
         datascience = Data Science with Pandas, Plots with Matplotlib and Seaborn and Machine-Learning with Scikit-learn
         deeplearning = Deep Learning models with Tensorflow Keras
         telegrambot = Setup your own Telegram Bot with python-telegram-bot module
+        django = Configure your Django backend and get some exaples for your applications
         """
         pf.format(text)

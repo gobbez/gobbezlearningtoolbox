@@ -69,6 +69,20 @@ Simple quick-start guide for the python-telegram-bot module to create your own T
 
 * quick_start(): Quick setup explanations
 
+#### Django:
+Simple quick-start guide to configure and create your Django backend server and database.
+* imports_project() = Most common imports for your main project
+* imports_application() = Find the most common imports to use in your applications 
+
+* example_main_urls() = Example of Urls of the main project 
+* example_model() = Example of Model for your application 
+* example_view() = Example of View for your application 
+* example_urls() = Example of Urls for your application
+        
+* settings() = Django settings file explanations 
+* commands() = Most important Django commands
+
+
 
 ## Contribute
 You can contribute to the GitHub Repository or use it locally:
@@ -83,6 +97,7 @@ You can find the PyPi module here: https://pypi.org/project/gobbezlearningtoolbo
 
 
 ## Updates
+* added django (18/03/2025)
 * added telegrambot (18/03/2025)
 * added listall (15/03/2025)
 * added deeplearning (15/03/2025)
