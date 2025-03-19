@@ -41,15 +41,17 @@ class DataScience():
         text = """  
         ## MOST USED IMPORTS FOR MACHINE LEARNING
         
-        # Supervised Models  
+        # Supervised Models - Regressors 
+        from sklearn.linear_model import LinearRegression
+        from sklearn.ensemble import RandomForestRegressor  
+        from sklearn.ensemble import VotingRegressor
+        from sklearn.ensemble import GradientBoostingRegressor
+        
+        # Supervised Models - Classifiers 
         from sklearn.tree import DecisionTreeClassifier  
         from sklearn.neighbors import KNeighborsClassifier  
-        from sklearn.ensemble import VotingClassifier  
-        from sklearn.ensemble import RandomForestRegressor  
-        
-        # Boosts Models  
+        from sklearn.ensemble import VotingClassifier 
         from sklearn.ensemble import AdaBoostClassifier  
-        from sklearn.ensemble import GradientBoostingRegressor  
         
         # Train / Test and Score  
         from sklearn.model_selection import train_test_split  
@@ -168,41 +170,44 @@ class DataScience():
 
         ## SUPERVISED LEARNING for REGRESSION
 
-        # Instantiate Classifiers Modules  
-        knn = KNeighborsClassifier(n_neighbors=21)  
-        dt = DecisionTreeClassifier(min_samples_leaf=0.10, random_state=SEED)  
-        ada = AdaBoostClassifier(estimator=dt, n_estimators=200, random_state=SEED)  
-
-        # Create a list of classifiers  
-        estimators = [('lr', lr), ('knn', knn), ('dt', dt), ('ada', ada)]  
-
-        # Create the VotingClassifier with the list  
-        vc = VotingClassifier(estimators=estimators)  
-
-        # Define the list of classifiers  
-        classifiers = [('Logistic Regression', lr), ('K Nearest Neighbours', knn), ('Classification Tree', dt), ('Voting Classifier', vc), ('Ada Boost', ada)]  
-
-        # Iterate over the pre-defined list of classifiers  
+        # Instantiate Regressors Modules  
+        lr = LinearRegression()
+        rf = RandomForestRegressor(n_estimators=100, random_state=SEED)
+        gr = GradientBoostingRegressor()
+        
+        # Create a list of regressors  
+        estimators = [('lr', lr), ('rf', rf), ('gr', gr)]  
+        
+        # Create the VotingRegressor with the list  
+        vr = VotingRegressor(estimators=estimators)  
+        
+        # Define the list of regressors  
+        regressors = [('Linear Regression', lr), ('Random Forest Regressor', rf), ('Voting Regressor', vr), ('Gradient Boosting Regressor', gr)]  
+        
+        # Iterate over the pre-defined list of regressors  
         results = []  
-        for clf_name, clf in classifiers:  
+        for reg_name, reg in regressors:
             # Fit clf to the training set  
-            clf.fit(X_train, y_train)  
-
+            reg.fit(X_train, y_train) 
+        
             # Predict y_pred  
-            y_pred = clf.predict(X_test)  
-
-            # Calculate accuracy and append result  
-            accuracy = accuracy_score(y_test, y_pred)  
-            results.append((clf_name, accuracy))  
-
-            # Evaluate clf's accuracy on the test set  
-            print('{:s} Accuracy: {:.3f} %'.format(clf_name, accuracy))  
-            print(f'Showing {clf_name} graph: ')  
+            y_pred = reg.predict(X_test)  
+            
+            # Calculate mse and r2 and append result  
+            mse = mean_squared_error(y_test, y_pred)
+            r2 = r2_score(y_test, y_pred)
+            results.append((reg_name, mse))  
+            
+            # Evaluate clf's mse on the test set  
+            print('{:s} Mse: {:.3f} -- R2: {:.2f}'.format(reg_name, mse, r2))  
+            print(f'Showing {reg_name} graph: ')  
 
             # Create a scatter plot with dt predictions and real values  
-            plt.figure(figsize=(4, 3))  
+            plt.figure(figsize=(8, 4))  
             sns.scatterplot(x=df['feature'], y=predicted_labels, label='Predictions', alpha=0.3, s=100)  
             sns.scatterplot(x=df['feature'], y=df['feature to forecast'], label='Real', alpha=1)  
+            plt.xlabel('feature')  
+            plt.ylabel('feature') 
             plt.show()  
 
         ## SUPERVISED LEARNING for CLASSIFICATION (0 or 1)
@@ -242,6 +247,7 @@ class DataScience():
 
         # Define the number of folds  
         kfold = KFold(n_splits=5, shuffle=True, random_state=42)  
+        model = LogisticRegression(random_state=SEED)
 
         # Evaluate using cross-validation  
         accuracies = []  
@@ -273,7 +279,7 @@ class DataScience():
             print(f'Using train set with dimension {len(X_test)} --- Accuracy is: {accuracy}')  
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=i/10, random_state=42)  
             model = LogisticRegression()  
-            model.fit(X_test, y_test)  
+            model.fit(X_train, y_train)  
             y_pred = model.predict(X_train)  
             accuracy = round(accuracy_score(y_train, y_pred), 2)  
             list_train_dimensions.append(len(X_test))  
@@ -281,7 +287,7 @@ class DataScience():
             print(f'Using test set with dimension {len(X_test)} --- Accuracy is: {accuracy}')  
 
         print('Using either test and train sets to make predictions. The following graph shows how the Accuracy varies changing the sets dimension. Test set is what should be used to predict!')  
-        plt.figure(figsize=(3, 3))  
+        plt.figure(figsize=(8, 4))  
         plt.plot(list_test_dimensions, list_test_accuracies, label='Test set')  
         plt.xlabel('Test & Train set Dimension')  
         plt.ylabel('Accuracy')  
