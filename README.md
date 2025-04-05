@@ -43,16 +43,24 @@ Methods and most common functions for Data Science, DataFrame manipulation and M
 
 #### DeepLearning:
 Most common Keras Deep Learning models.
-* imports_regression(): Most used imports for Keras Deep Learning - Regression
-* imports_classifier(): Most used import for Keras Deep Learning - Classifier
+* imports(): Common imports for Keras
 
-* sequential(): Simple ready-to-go guide for a sequential Deep Learning model using Keras  
-* image_classifier(): Simple model to classify images using CNN
+* common_path(): Simple step-by-step schema when dealing with Deep Learning 
 
+* dense(): A densely connected network is a pile of Dense layers to elaborate vector data. 
+* convnet(): Convolutions layers search local patterns, applying the same transformation to different (patch).
+* rnn(): Recurrent Neural Network elaborates a single timestep input at time while keeping a state.
+
+* pre_elaboration(): List the most used data pre-elaboration techniques
+
+* callbacks(): Explain how to configure Keras Callbacks for different advanced techniques
 * dropout(): Explain how to set a simple DropOut
 * learning_rate_scheduler(): Explain how to modify learning rate based on epochs
 * mixed_precision(): Explain how to setup a mixed_precision training
-* gradient_accumulation(): Explain how to use gradient accolumation to increase batch size
+* gradient_accumulation(): Explain how to use gradient accumulation to increase batch size
+
+* TensorBoard(): Show how to use Tensorflow TensorBoard to gain insights of your neural network
+* plot_model(): Show how to use Keras plot_model to create an image of the layers of your neural network
 
 * compile(): Explain how to compile a model
 * train(): Explain how to train a model
@@ -111,6 +119,7 @@ You can find the PyPi module here: https://pypi.org/project/gobbezlearningtoolbo
 
 
 ## Updates
+* improved deeplearning (05/04/2025)
 * added ollama (18/03/2025)
 * added createpypimodule (18/03/2025)
 * added cookiecutter (18/03/2025)
